@@ -2,7 +2,11 @@ return {
 	{
 		"williamboman/mason.nvim",
 		config = function()
-			require("mason").setup()
+			require("mason").setup({
+				ui = {
+					border = "rounded",
+				},
+			})
 		end,
 	},
 	{
@@ -21,7 +25,7 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({})
-            lspconfig.clangd.setup({})
+			lspconfig.clangd.setup({})
 
 			vim.keymap.set("n", "<C-k>", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
